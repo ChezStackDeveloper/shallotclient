@@ -3,47 +3,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 :root {
-  --background-color: #000000 !important;
-  --text-color: white !important;
-  --accent-color: #B284BE !important;
+  --background-color: #121212 !important; /* Darker background for a sleek look */
+  --text-color: #E0E0E0 !important; /* Light gray for text */
+  --accent-color: #6C6CFF !important; /* Soft blue accent color */
+  --card-border: rgba(255, 255, 255, 0.1) !important; /* Subtle card borders */
+  --card-hover-border: #6C6CFF !important; /* Hover effect on cards */
+  --search-focus-border: #6C6CFF !important; /* Focus border color for search */
 }
 
-
-* {
-  font-family: "Press Start 2P", serif;
-  transition: all 0.3s ease;
-}
 /* General styles */
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-   font-family: "Roboto Mono", serif;
+  font-family: "Roboto Mono", monospace;
   margin: 0;
   padding: 0;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Search input styles */
 #searchInput {
-  padding: 17px;
+  padding: 15px;
   box-sizing: border-box;
   margin-bottom: 20px;
-  width: 100%; /* Occupy full width */
-  max-width: 400px; /* Limit maximum width */
-  margin: 20px auto; /* Center horizontally */
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
   border-radius: 10px;
-  border: none;
+  border: 2px solid var(--card-border);
   font-size: 24px;
-  user-select: none;
   outline: none;
   text-align: center;
   transition: all 0.3s ease-in-out;
+  background-color: #1D1D1D;
 }
 #searchInput:focus {
-border: 3px solid var(--accent-color);
+  border: 3px solid var(--search-focus-border);
+  background-color: #292929; /* Slight darken on focus */
 }
 
 /* Games container styles */
@@ -51,45 +51,48 @@ border: 3px solid var(--accent-color);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0 20px; /* Add padding to the sides */
+  padding: 0 20px;
   box-sizing: border-box;
+  gap: 20px; /* Use gap for consistent spacing */
 }
 
 /* Game card styles */
 .game {
   margin: 10px;
-  
   text-align: center;
-  flex: 1 0 200px; /* Flexbox item properties */
-  max-width: 200px; /* Limit maximum width */
+  flex: 1 0 200px;
+  max-width: 200px;
   display: inline-block;
-  margin: 10px;
-  transition: transform 0.3s ease;
-  border: 2px;
+  border: 2px solid var(--card-border);
   border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #1D1D1D; /* Dark card background */
 }
 .game:hover {
-  transform: scale(0.95); /* Scale up on hover */
-  border: 2px solid var(--accent-color);
-  
-  
+  transform: scale(1.05);
+  border: 2px solid var(--card-hover-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 /* Game image styles */
 .game img {
-  width: 100%; /* Occupy full width of container */
-  max-width: 100%; /* Ensure image does not exceed container width */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   cursor: pointer;
-  width: 200px;
-  height: 200px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+.game img:hover {
+  transform: scale(1.05); /* Slight zoom effect on image hover */
 }
 
 /* Game description styles */
 .game p {
   margin-top: 5px;
   font-weight: 600;
+  font-size: 16px;
 }
 
 /* Responsive adjustments */
@@ -104,27 +107,36 @@ border: 3px solid var(--accent-color);
     flex-basis: calc(100% - 20px); /* Single game per row */
   }
 }
+
 .center {
   justify-content: center;
   text-align: center;
   display: flex;
   flex-direction: column;
 }
-@media only screen and (max-width: 450px) {
-  #searchInput {
-    width: 200px;
-  }
-}
+
+/* Footer styles */
 .footer {
   margin: 10px auto;
   bottom: 0;
   justify-content: center;
   text-align: center;
   align-items: center;
-
-
 }
+
+/* Link styles */
 .link {
   color: var(--accent-color);
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+.link:hover {
+  color: #4C4CFF; /* Slight change in accent color on hover */
+}
+
+/* Mobile adjustments for search bar */
+@media only screen and (max-width: 450px) {
+  #searchInput {
+    width: 200px;
+  }
 }
